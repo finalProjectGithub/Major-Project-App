@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../database/fetch_vechicle_count.dart';
 class DataPage extends StatefulWidget {
   const DataPage({super.key});
 
@@ -10,7 +10,9 @@ class DataPage extends StatefulWidget {
 class _DataPageState extends State<DataPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: VehicleDataFetcher(),
+    );
   }
 }
 
