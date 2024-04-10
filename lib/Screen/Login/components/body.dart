@@ -7,6 +7,7 @@ import '../../../components/rounded_button.dart';
 import '../../../components/rounded_input_field.dart';
 import '../../../components/rounded_password_field.dart';
 import '../../../constraints.dart';
+import '../../sign up/components/signup_screen.dart';
 
 class Body extends StatelessWidget {
   Body({
@@ -60,8 +61,18 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
               login: true,
+              //to-do
               press: () {
-              }
+                
+                  Navigator.of(
+                    context
+                  ).push(
+                    MaterialPageRoute(
+                      builder: (context) => const signUpScreen()
+                    )
+                  );
+                }
+              
             ),
           ]
         ),
