@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:app/firebase_options.dart';
 import 'Screen/Welcome/welcome_screen.dart';
-import 'Screen/sign up/components/signup_screen.dart';
 import 'constraints.dart';
 
 Future<void> main() async {
