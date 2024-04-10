@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "84274874317",
+    "project_id": "majordb",
+    "storage_bucket": "majordb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84274874317:android:eee361e0079e1ab0986684",
+        "android_client_info": {
+          "package_name": "com.exa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCStJeEENiPMouh7rlsR0tUkEqrCn5ZrtY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
