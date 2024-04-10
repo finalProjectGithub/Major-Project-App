@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:app/firebase_options.dart';
 import 'Screen/Welcome/welcome_screen.dart';
 import 'constraints.dart';
-
+  
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -25,10 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white
       ),
-      home: WelcomeScreen(),
-      // routes: {
-      //   'login_signup' :(context) => const signUpScreen()
-      // },
+      home: WelcomeScreen()
     );
   }
 }
