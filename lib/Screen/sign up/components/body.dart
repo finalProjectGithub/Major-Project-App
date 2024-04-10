@@ -44,9 +44,9 @@ class Body extends StatelessWidget {
                 textEditingController: _password,
               ),
               RoundedButton(
-                text: "signup",
+                text: "Sign up",
                 press: () {},
-                color: Colors.black26,
+                color: kPrimaryColor,
               ),
               SizedBox(height: size.height * 0.03),
               AlreadyHaveAnAccountCheck(

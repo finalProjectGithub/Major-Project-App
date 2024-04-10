@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:app/Screen/Login/components/background.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,8 +15,8 @@ class Body extends StatelessWidget {
     super.key,
   });
 
-  TextEditingController _email = TextEditingController();
-  TextEditingController _password = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               "LOGIN",
               style: TextStyle(
                 fontWeight: FontWeight.bold
@@ -53,8 +54,12 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: "LOGIN",
               press: () {
-                print(_email.text);
-                print(_password.text);
+                if (kDebugMode) {
+                  print(_email.text);
+                }
+                if (kDebugMode) {
+                  print(_password.text);
+                }
               },
               color: kPrimaryColor,
             ),
