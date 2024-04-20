@@ -1,3 +1,4 @@
+import 'package:app/Screen/sign%20up/components/or_divider.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/rounded_button.dart';
@@ -57,6 +58,7 @@ class Body extends StatelessWidget {
                       builder: (context) => signUpScreen()));
                 }
               ),
+              SizedBox(height: size.height * 0.05,),
               Row(
                 children: [
                   TextButton(
@@ -82,18 +84,19 @@ class Body extends StatelessWidget {
                   )
                 ],
               ),
-              TextButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => DataPage()));
-              }, 
-              child: const Text(
-                'Continue without login',
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  decoration: TextDecoration.underline
-                ),
-              )
-            )
+              OrDivider()
+            //   TextButton(
+            //   onPressed: () {
+            //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => DataPage()));
+            //   }, 
+            //   child: const Text(
+            //     'Continue without login',
+            //     style: TextStyle(
+            //       color: kPrimaryColor,
+            //       decoration: TextDecoration.underline
+            //     ),
+            //   )
+            // )
             ],
           ),
         ],

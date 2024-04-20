@@ -63,22 +63,14 @@ class _BodyState extends State<Body> {
               RoundedInputField(
                 textEditingController: _email,
                 hintText: "Your Email",
-                onChanged: (value) {
-                  setState() {
-                    emailText = _email.text;
-                  }
-                },
+                onChanged: (value) {},
               ),
               RoundedPasswordField(
                 textEditingController: _password,
-                onChanged: (value) {
-                  setState() {
-                    passwordText = _password.text;
-                  }
-                },
+                onChanged: (value) {}
               ),
               RoundedButton(
-                text: "Sign up",
+                text: "SIGN UP",
                 press: signUpUser,
                 color: kPrimaryColor,
                 
@@ -97,21 +89,24 @@ class _BodyState extends State<Body> {
                   );
                 },
               ),
+              SizedBox(
+                height: size.height * 0.05,
+              ),
               const OrDivider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SocalIcon(iconSrc: "assets/icons/facebook.svg",
-                  press: (){},    
-                  ),
-                    SocalIcon(iconSrc: "assets/icons/twitter.svg",
-                  press: (){},            
-                  ),
-                    SocalIcon(iconSrc: "assets/icons/google-plus.svg",
-                  press: (){},   
-                  ),  
-                ],
-              )
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: <Widget>[
+              //     SocalIcon(iconSrc: "assets/icons/facebook.svg",
+              //     press: (){},    
+              //     ),
+              //       SocalIcon(iconSrc: "assets/icons/twitter.svg",
+              //     press: (){},            
+              //     ),
+              //       SocalIcon(iconSrc: "assets/icons/google-plus.svg",
+              //     press: (){},   
+              //     ),  
+              //   ],
+              // )
             ],
           ),
         ));

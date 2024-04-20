@@ -1,3 +1,5 @@
+import 'package:app/firebase/firebase_auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:app/Screen/Login/components/background.dart';
@@ -8,15 +10,39 @@ import '../../../components/rounded_button.dart';
 import '../../../components/rounded_input_field.dart';
 import '../../../components/rounded_password_field.dart';
 import '../../../constraints.dart';
+import '../../sign up/components/or_divider.dart';
 import '../../sign up/components/signup_screen.dart';
 
-class Body extends StatelessWidget {
-  Body({
-    super.key,
-  });
+class Body extends StatefulWidget {
+  const Body({super.key});
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
 
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+
+    super.dispose();
+
+  }
+
+  void loginUser() {
+    FirebaseAuthMethods(
+      FirebaseAuth.instance
+    ).loginWithEmail(
+      email: _email.text, 
+      password:_password.text, 
+      context: context
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,20 +79,12 @@ class Body extends StatelessWidget {
             ),
             RoundedButton(
               text: "LOGIN",
-              press: () {
-                if (kDebugMode) {
-                  print(_email.text);
-                }
-                if (kDebugMode) {
-                  print(_password.text);
-                }
-              },
+              press: loginUser,
               color: kPrimaryColor,
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
               login: true,
-              //to-do
               press: () {
                 
                   Navigator.of(
@@ -76,9 +94,10 @@ class Body extends StatelessWidget {
                       builder: (context) => const signUpScreen()
                     )
                   );
-                }
-              
+                }       
             ),
+            SizedBox(height: size.height * 0.03),
+            const OrDivider(),
           ]
         ),
       ),

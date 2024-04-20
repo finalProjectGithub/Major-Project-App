@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "84274874317",
+    "firebase_url": "https://majordb-default-rtdb.firebaseio.com",
     "project_id": "majordb",
     "storage_bucket": "majordb.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.exa"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "84274874317-slkf9lje33l2ohpisgj0progorj4oibj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.exa",
+            "certificate_hash": "447f2fa2b3a745671dfc8a760148d238c9041a25"
+          }
+        },
+        {
+          "client_id": "84274874317-rmngrh4voftkhjt8f8s2rh60nlrlooa3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCStJeEENiPMouh7rlsR0tUkEqrCn5ZrtY"
@@ -20,7 +34,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84274874317-rmngrh4voftkhjt8f8s2rh60nlrlooa3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "84274874317-6ur1jqt0h9g6i13k1it5rdao5nvjin1v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.app.RunnerTests"
+              }
+            }
+          ]
         }
       }
     }

@@ -14,13 +14,13 @@ class OrDivider extends StatelessWidget {
       child: Row(
         children: <Widget>[
           buildDivider(),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
-              "OR",
-              style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w600),
-            ),
-          ),
+          // const Padding(
+          //   padding: EdgeInsets.symmetric(horizontal: 10),
+          //   child: Text(
+          //     "OR",
+          //     style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w600),
+          //   ),
+          // ),
           buildDivider(),
         ],
       ),
