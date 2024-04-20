@@ -1,3 +1,5 @@
+import 'package:app/firebase/firebase_auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:app/Screen/sign up/components/background.dart';
@@ -10,16 +12,40 @@ import '../../../constraints.dart';
 import '../../Login/login_screen.dart';
 import 'or_divider.dart';
 
-class Body extends StatelessWidget {
 
+class Body extends StatefulWidget {
+  const Body({super.key});
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
-  Body({super.key});
+  String emailText = "";
+  String passwordText = "";
+
+  @override
+  void dispose() {
+    super.dispose();
+    _email.dispose();
+    _password.dispose();
+  }
+
+  void signUpUser () async {
+    FirebaseAuthMethods(FirebaseAuth.instance).signUpWithEmail(
+      email: emailText, 
+      password: passwordText,
+      context: context
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Background(
         child: SingleChildScrollView(
           child: Column(
@@ -36,17 +62,26 @@ class Body extends StatelessWidget {
               ),
               RoundedInputField(
                 hintText: "Your Email",
-                onChanged: (value) {},
+                onChanged: (value) {
+                  setState() {
+                    emailText = _email.text;
+                  }
+                },
                 textEditingController: _email,
               ),
               RoundedPasswordField(
-                onChanged: (value) {},
+                onChanged: (value) {
+                  setState() {
+                    passwordText = _password.text;
+                  }
+                },
                 textEditingController: _password,
               ),
               RoundedButton(
                 text: "Sign up",
-                press: () {},
+                press: signUpUser,
                 color: kPrimaryColor,
+                
               ),
               SizedBox(height: size.height * 0.03),
               AlreadyHaveAnAccountCheck(
@@ -56,7 +91,7 @@ class Body extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return LoginScreen();
+                        return const LoginScreen();
                       },
                     ),
                   );
@@ -67,23 +102,15 @@ class Body extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SocalIcon(iconSrc: "assets/icons/facebook.svg",
-                  press: (){},
-                  
+                  press: (){},    
                   ),
                     SocalIcon(iconSrc: "assets/icons/twitter.svg",
-                  press: (){},
-                  
+                  press: (){},            
                   ),
                     SocalIcon(iconSrc: "assets/icons/google-plus.svg",
-                  press: (){},
-                  
-                  ),
-        
-        
-        
+                  press: (){},   
+                  ),  
                 ],
-        
-        
               )
             ],
           ),

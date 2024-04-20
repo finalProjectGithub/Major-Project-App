@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'initializer.dart';
@@ -63,7 +65,7 @@ class _VehicleDataFetcherState extends State<VehicleDataFetcher> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("                  \n"+carCount1, style: TextStyle(fontSize: 40.0),),
+      body: Text("                  \n"+carCount1, style: const TextStyle(fontSize: 40.0),),
     );
   }
 }
