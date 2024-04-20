@@ -36,8 +36,8 @@ class _BodyState extends State<Body> {
 
   void signUpUser () async {
     FirebaseAuthMethods(FirebaseAuth.instance).signUpWithEmail(
-      email: emailText, 
-      password: passwordText,
+      email: _email.text,
+      password: _password.text,
       context: context
     );
   }
@@ -61,21 +61,21 @@ class _BodyState extends State<Body> {
                 height: size.height * 0.35,
               ),
               RoundedInputField(
+                textEditingController: _email,
                 hintText: "Your Email",
                 onChanged: (value) {
                   setState() {
                     emailText = _email.text;
                   }
                 },
-                textEditingController: _email,
               ),
               RoundedPasswordField(
+                textEditingController: _password,
                 onChanged: (value) {
                   setState() {
                     passwordText = _password.text;
                   }
                 },
-                textEditingController: _password,
               ),
               RoundedButton(
                 text: "Sign up",

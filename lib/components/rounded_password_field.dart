@@ -15,6 +15,7 @@ class RoundedPasswordField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextField(
+        controller: textEditingController,
         obscureText: true,
         onChanged: onChanged,
         decoration: const InputDecoration(

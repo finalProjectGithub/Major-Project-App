@@ -39,17 +39,17 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: size.height * 0.03),
             RoundedInputField(
+              textEditingController: _email,
               hintText: "Your Email",
               onChanged: (
                 value
               ) {},
-              textEditingController: _email,
             ),
             RoundedPasswordField(
+              textEditingController: _password,
               onChanged: (
                 value
-              ) {},
-              textEditingController: _password,
+              ) {}, 
             ),
             RoundedButton(
               text: "LOGIN",
@@ -85,4 +85,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-
