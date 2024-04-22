@@ -1,6 +1,7 @@
+import 'package:app/Screen/DataPage/components/background.dart';
+import 'package:app/firebase/fetch_vechicle_count.dart';
 import 'package:flutter/material.dart';
 
-import 'map_box_widget.dart';
 
 class Body extends StatelessWidget {
   final int vehicleCount1;
@@ -8,6 +9,8 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MapboxMapPage(vehicleCount: vehicleCount1,);
+    return const Background(
+      child: VehicleDataFetcher()
+    );
   }
 }
