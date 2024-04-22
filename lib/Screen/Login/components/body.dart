@@ -1,3 +1,4 @@
+import 'package:app/Screen/ForgotPassword/forgot_password_page.dart';
 import 'package:app/firebase/firebase_auth_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -76,6 +77,31 @@ class _BodyState extends State<Body> {
               onChanged: (
                 value
               ) {}, 
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 50, top: 10.0, bottom: 10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => const ForgotPasswordPage()
+                        )
+                      );
+                    },
+                    child: const Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                      color: kPrimaryColor,
+                      fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
             RoundedButton(
               text: "LOGIN",
