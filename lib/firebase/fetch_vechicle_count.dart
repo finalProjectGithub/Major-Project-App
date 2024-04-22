@@ -28,11 +28,17 @@ String carCount1 = '';
 class _VehicleDataFetcherState extends State<VehicleDataFetcher> {
   
   late MapboxMapController mapController;
-  late LocationData currentLocation;
+  LocationData? currentLocation;
   late Location location;
   Symbol? currentSymbol;
   // use "count1" for Mapbox 
   int count1 = 0;
+  
+  @override
+  void dispose() {
+    mapController.dispose();
+    super.dispose();
+  }
 
   void _onMapCreated(MapboxMapController controller) {
     mapController = controller;
@@ -57,15 +63,19 @@ class _VehicleDataFetcherState extends State<VehicleDataFetcher> {
   }
 
 void _updateLocationOnMap() async {
-  if (currentLocation != null) {
-    final double lat = currentLocation.latitude!;
-    final double lng = currentLocation.longitude!;
+  if (currentLocation?.latitude != null && currentLocation?.longitude != null) {
+    final double? lat = currentLocation?.latitude;
+    final double? lng = currentLocation?.longitude;
   
     mapController.animateCamera(
       CameraUpdate.newLatLng(
-        LatLng(lat, lng),
+        LatLng(lat!, lng!),
       ),
     );
+
+    if (currentSymbol != null) {
+      mapController.removeSymbol(currentSymbol!);
+    }
 
     // Add a marker at the current location
     currentSymbol = await mapController.addSymbol(
@@ -159,17 +169,17 @@ void _updateLocationOnMap() async {
               children: [
                 FloatingActionButton(
                   onPressed: _zoomIn,
-                  child: Icon(Icons.add),
+                  child: const Icon(Icons.add),
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
                 FloatingActionButton(
                   onPressed: _zoomOut,
-                  child: Icon(Icons.remove),
+                  child: const Icon(Icons.remove),
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
                 FloatingActionButton(
                   onPressed: _getCurrentLocation,
-                  child: Icon(Icons.location_on),
+                  child: const Icon(Icons.location_on),
                 ),
               ],
             ),
@@ -187,8 +197,8 @@ void _updateLocationOnMap() async {
             bottom: 20.0,
             left: 20.0,
             child: CoordinatesWidget(
-              latitude: currentLocation.latitude ?? 0.0,
-              longitude: currentLocation.longitude ?? 0.0,
+              latitude: currentLocation?.latitude ?? 0.0,
+              longitude: currentLocation?.longitude ?? 0.0,
             ),
           ),
         ],
@@ -232,42 +242,4 @@ class CoordinatesWidget extends StatelessWidget {
   }
 }
 
-class ColorBlock extends StatefulWidget {
-  @override
-  _ColorBlockState createState() => _ColorBlockState();
-}
-
-class _ColorBlockState extends State<ColorBlock> {
-  int _GaadiSankhya = 0;
-
-  @override
-  void initState() {
-    super.initState();
-     setState(() {
-        _GaadiSankhya = int.parse(carCount1); // Generate a random number between 0 and 30
-      }); 
-  }
-
-  Color _getColor() {
-    if (_GaadiSankhya > 5) {
-      return Colors.red;
-    } else if (_GaadiSankhya < 5 && _GaadiSankhya >= 3) {
-      return Colors.yellow;
-    } else if(_GaadiSankhya < 3){
-      return Colors.green;
-    } else {
-      return Colors.green;
-    }
-
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 80,
-      height: 80,
-      color: _getColor(),
-    );
-  }
-}
 
