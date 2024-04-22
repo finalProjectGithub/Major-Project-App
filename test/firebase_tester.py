@@ -14,5 +14,6 @@ db.reference("/count").set(0)
 
 while True:
     random_number = random.randint(0, 15)
+    print(random_number)
     db.reference("/").update({"count" : random_number})
     time.sleep(1)

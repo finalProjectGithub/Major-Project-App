@@ -2,6 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../Screen/DataPage/data_page.dart';
 import 'initializer.dart';
 
 class VehicleDataFetcher extends StatefulWidget {
@@ -11,6 +12,7 @@ class VehicleDataFetcher extends StatefulWidget {
   State<VehicleDataFetcher> createState() => _VehicleDataFetcherState();
 }
 
+String carCount1 = '';
 class _VehicleDataFetcherState extends State<VehicleDataFetcher> {
   
   // use "count1" for Mapbox 
@@ -20,7 +22,7 @@ class _VehicleDataFetcherState extends State<VehicleDataFetcher> {
     return count1;
   }
 
-  String carCount1 = '';
+  
 
   @override
   void initState() {
@@ -65,7 +67,9 @@ class _VehicleDataFetcherState extends State<VehicleDataFetcher> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("                  \n"+carCount1, style: const TextStyle(fontSize: 40.0),),
+      body: DataPage(
+        vehicleCount: int.parse(carCount1)
+      )
     );
   }
 }

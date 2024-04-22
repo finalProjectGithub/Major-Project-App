@@ -1,5 +1,6 @@
 import 'dart:core';
 import 'package:app/Screen/DataPage/data_page.dart';
+import 'package:app/firebase/fetch_vechicle_count.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
@@ -27,7 +28,7 @@ class FirebaseAuthMethods {
       await Future.delayed(Duration(seconds: 1));
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => DataPage(), // Replace NextScreen with your desired screen
+          builder: (context) => VehicleDataFetcher(), // Replace NextScreen with your desired screen
         ),
       );
     } on FirebaseAuthException catch (e) {
@@ -50,7 +51,7 @@ class FirebaseAuthMethods {
       await Future.delayed(const Duration(seconds: 1));
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => DataPage(), // Replace NextScreen with your desired screen
+          builder: (context) => VehicleDataFetcher() // Replace NextScreen with your desired screen
         ),
       );
 
