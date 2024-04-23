@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import '../../firebase/fetch_vechicle_count.dart';
+import 'components/body.dart';
 
-class DataPage extends StatefulWidget {
-  const DataPage({super.key});
+class DataPage extends StatelessWidget {
+  final int vehicleCount;
+  const DataPage({
+     super.key, 
+     required this.vehicleCount
+   });
 
-  @override
-  State<DataPage> createState() => _DataPageState();
-}
-
-class _DataPageState extends State<DataPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: VehicleDataFetcher(),
-    );
+       body: Body(vehicleCount1: vehicleCount)
+     );
   }
 }
-
-// @TODO : implement Mapbox

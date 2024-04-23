@@ -1,4 +1,5 @@
 import 'package:app/Screen/sign%20up/components/or_divider.dart';
+import 'package:app/firebase/fetch_vechicle_count.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/rounded_button.dart';
@@ -84,19 +85,19 @@ class Body extends StatelessWidget {
                   )
                 ],
               ),
-              OrDivider()
-            //   TextButton(
-            //   onPressed: () {
-            //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => DataPage()));
-            //   }, 
-            //   child: const Text(
-            //     'Continue without login',
-            //     style: TextStyle(
-            //       color: kPrimaryColor,
-            //       decoration: TextDecoration.underline
-            //     ),
-            //   )
-            // )
+              OrDivider(),
+              TextButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => VehicleDataFetcher()));
+              }, 
+              child: const Text(
+                'Continue without login',
+                style: TextStyle(
+                  color: kPrimaryColor,
+                  decoration: TextDecoration.underline
+                ),
+              )
+            )
             ],
           ),
         ],
