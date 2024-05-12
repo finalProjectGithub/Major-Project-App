@@ -42,6 +42,7 @@ dependencies:
   google_sign_in: ^6.2.1
   mapbox_gl: ^0.16.0
   location: ^6.0.1
+  flutter_launcher_icons: ^0.11.0
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,9 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+flutter_icons : 
+  android: true
+  image_path: "assets/icons/maplogo.png"
 flutter:
 
   # The following line ensures that the Material Icons font is

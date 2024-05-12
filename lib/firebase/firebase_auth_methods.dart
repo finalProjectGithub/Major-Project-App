@@ -1,5 +1,6 @@
 import 'dart:core';
 import 'package:app/Screen/DataPage/data_page.dart';
+import 'package:app/Screen/Login/login_screen.dart';
 import 'package:app/firebase/fetch_vechicle_count.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -28,7 +29,7 @@ class FirebaseAuthMethods {
       await Future.delayed(Duration(seconds: 1));
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => VehicleDataFetcher(), // Replace NextScreen with your desired screen
+          builder: (context) => LoginScreen(), // Replace NextScreen with your desired screen
         ),
       );
     } on FirebaseAuthException catch (e) {
@@ -48,17 +49,24 @@ class FirebaseAuthMethods {
         password: password
       );
 
-      await Future.delayed(const Duration(seconds: 1));
-      Navigator.of(context).pushReplacement(
+
+      // Navigator.of(context).pushReplacement(
+      //   MaterialPageRoute(
+      //     builder: (context) => VehicleDataFetcher() // Replace NextScreen with your desired screen
+      //   ),
+      // );
+
+      // if the current user is not verified
+      if (_auth.currentUser!.emailVerified) {
+        
+        Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => VehicleDataFetcher() // Replace NextScreen with your desired screen
         ),
       );
-
-      // if the current user is not verified
-      if (!_auth.currentUser!.emailVerified) {
+      } else {
         await sendEmailVerification(context);
-        // restricted access wala kuch kr skte yaha
+        showSnackBar(context, "User not verified, check your Email");
       }
     } on FirebaseAuthException catch (e) {
       showSnackBar(context, e.message!);

@@ -86,18 +86,6 @@ class Body extends StatelessWidget {
                 ],
               ),
               OrDivider(),
-              TextButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => VehicleDataFetcher()));
-              }, 
-              child: const Text(
-                'Continue without login',
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  decoration: TextDecoration.underline
-                ),
-              )
-            )
             ],
           ),
         ],

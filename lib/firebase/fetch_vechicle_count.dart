@@ -137,11 +137,11 @@ void _updateLocationOnMap() async {
   }
 
   Color _getColor() {
-    if (count1 > 5) {
+    if (count1 >=3 ) {
       return Colors.red;
-    } else if (count1 < 5 && count1 >= 3) {
+    } else if (count1 == 2) {
       return Colors.yellow;
-    } else if(count1 < 3){
+    } else if(count1 < 2){
       return Colors.green;
     } else {
       return Colors.green;
